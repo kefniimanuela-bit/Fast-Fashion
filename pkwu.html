@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Produk</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <style>
+      /* Apply Poppins font */
+      body, .navbar, .nav-link, .navbar-brand, .text-card-content p, .wardrobe-section h2, .wardrobe-info h3, .wardrobe-info p, h1, h2, h3 {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* HERO */
+      .hero {
+        background: url('./image/swag glasses.jpg') center/cover no-repeat; /* FIXED: Removed backslash for space */
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        animation: fadeHero 1.5s ease-out forwards;
+        opacity: 0;
+      }
+
+      .typewriter {
+        color: white;
+        font-size: 60px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 4px solid white;
+        width: 0;
+        animation: typing 3s steps(30) forwards, blink 0.7s infinite;
+      }
+
+      @keyframes typing { from { width: 0; } to { width: 100%; } }
+      @keyframes blink { 50% { border-color: transparent; } }
+      @keyframes fadeHero { from { opacity: 0; } to { opacity: 1; } }
+
+      /* PRODUCT VIDEO SECTION STYLES */
+      .product-video-section {
+          /* FIXED: Removed backslash for space */
+          background-image: url('./image/A yellow.jpg'); 
+          background-size: cover; 
+          background-position: center; 
+          background-attachment: fixed; 
+          padding-top: 80px;
+          padding-bottom: 80px;
+      }
+        .product-video-section h2 {
+            color: #28a745; 
+            font-size: 2.8rem;
+        }
+        
+        /* VIDEO CONTAINER */
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-container iframe {
+            display: none; 
+        }
+
+      .product-explanation {
+          background-color: #ffffff;
+          border: 1px solid #e2e6ea;
+      }
+
+      .product-explanation p.lead {
+          font-size: 1.25rem;
+          color: #555;
+          text-align: justify; 
+      }
+
+      .features-list h3 {
+          color: #28a745; 
+          font-size: 1.75rem;
+          margin-bottom: 15px;
+      }
+
+      .features-list p {
+          color: #444;
+          line-height: 1.7;
+          text-align: justify;
+      }
+
+      .features-list .fa-leaf,
+      .features-list .fa-seedling,
+      .features-list .fa-recycle,
+      .features-list .fa-hourglass-half {
+          color: #28a745; /* Warna ikon hijau */
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+          .product-video-section h2 {
+              font-size: 2rem;
+          }
+          .features-list h3 {
+              font-size: 1.5rem;
+          }
+      }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-warning">
+ <div class="container-fluid">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-link  text-danger"  href="./index.html">Home</a>
+       <a class="nav-link text-danger"  href="./dampak.html">Dampak</a>
+       <a class="nav-link text-danger"  href="./solusi.html">Solusi</a>
+       <a class="nav-link active text-danger" aria-current="page" href="./pkwu.html">Produk</a>
+     </div>
+   </div>
+ </div>
+</nav>
+
+<div class="hero">
+  <h1 class="typewriter">Produk</h1>
+</div>
+
+<section class="product-video-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold text-success">Rasakan Keberlanjutan dalam Setiap Nyala Api</h2>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <div class="video-container shadow-lg rounded-3">
+                    <video controls class="local-video">
+                        <source src="./video/Scented Candles.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung tag video HTML5.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="product-explanation p-4 rounded-3 shadow-sm bg-white">
+                   <p class="lead mb-4">
+    Kami percaya bahwa keberlanjutan bukan hanya tentang apa yang kita kenakan, tetapi tentang setiap pilihan konsumsi yang kita buat. Lilin aromaterapi kami adalah wujud nyata dari filosofi Sustainable Consumption yang mengutamakan kelestarian bumi dan kualitas hidup Anda.
+</p>
+                    
+                    <div class="row features-list">
+                        <div class="col-lg-6 mb-4">
+                            <h3 class="fw-bold text-success"><i class="fas fa-leaf me-2"></i>Bahan Baku Terbarukan: Soy Wax Pilihan</h3>
+                            <p>
+                                Sama seperti sustainable fashion yang menolak bahan sintetis dari minyak bumi, lilin kami menolak parafin. Kami menggunakan 100% Soy Wax murni, sebuah lilin nabati yang terbarukan, terbakar lebih bersih tanpa jelaga hitam, dan jauh lebih ramah lingkungan. Ini adalah komitmen kami untuk mengurangi jejak karbon di setiap nyala api.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <h3 class="fw-bold text-success"><i class="fas fa-seedling me-2"></i>Aroma Alami Buah Coklat</h3>
+                            <p>
+                                Mengikuti prinsip "clean production" dalam keberlanjutan, kami menghadirkan aroma minyak esensial buah coklat yang menenangkan. Bebas dari bahan kimia keras atau phthalate, wewangian alami ini menciptakan suasana relaksasi tanpa mengorbankan kualitas udara di sekitar Anda. Pengalaman aromaterapi yang murni dan aman.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row features-list justify-content-center">
+                        <div class="col-lg-6 mb-4">
+                            <h3 class="fw-bold text-success"><i class="fas fa-recycle me-2"></i>Wadah Kaca Cantik yang Dapat Digunakan Kembali</h3>
+                            <p>
+                                Tolak budaya "beli-pakai-buang" ala Fast Fashion! Setiap lilin kami dikemas dalam jar kaca berkualitas tinggi yang didesain untuk kehidupan kedua. Setelah lilin habis, wadah ini dapat dicuci bersih dan digunakan kembali sebagai vas bunga mini, tempat pensil, atau wadah serbaguna lainnya. Sebuah langkah kecil menuju ekonomi sirkular di rumah Anda.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+   <script>
+      function scrollToInfo() {
+         // This now targets the section with id="info-section" (ensure this ID exists if you use this function later)
+         document.getElementById("info-section").scrollIntoView({ behavior: "smooth" });
+      }
+   </script>
+
+   <script>
+const cards = document.querySelectorAll(".card__inner");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-flipped");
+  });
+});
+</script>
+
+<footer>
+ <footer class="bg-warning text-danger text-center mt-5 p-3">
+ <p> "Menjadi pemimpin yang Peduli, Kreatif, dan Berwawasans Global"
+</p>
+</footer>
+
+</body>
+</html>

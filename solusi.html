@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solusi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  /* Apply Poppins font */
+  body, .navbar, .nav-link, .navbar-brand, .text-card-content p, .wardrobe-section h2, .wardrobe-info h3, .wardrobe-info p, h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- HERO SECTION --- */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero {
+    background: url('./image/solusi berkelanjutan background.png') center/cover no-repeat;
+    min-height: 350px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeHero 1.5s ease-out forwards;
+    opacity: 0;
+    background-color: #333;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 20px rgba(0,0,0,0.8); 
+    animation: slideDown 1.2s ease-out forwards;
+    opacity: 0;
+  }
+
+  .hero h3 {
+    font-size: 24px;
+    color: #f1f1f1;
+    margin-top: 10px;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.8); 
+    animation: fadeText 1.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeHero { from {opacity:0;} to {opacity:1;} }
+  @keyframes slideDown { from {transform:translateY(-40px); opacity:0;} to {transform:translateY(0); opacity:1;} }
+  @keyframes fadeText { from {opacity:0; transform:translateY(15px);} to {opacity:1; transform:translateY(0);} }
+  
+
+ /* --- BELOW HERO SECTION (text-card-container) --- */
+  .text-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px; 
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+
+    /* Background Image Styling for Centered, Non-Repeating Coverage */
+    background-image: url('./image/ -8.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: #f7f7f7; 
+    border-radius: 25px; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  /* ... (rest of your existing CSS remains unchanged) ... */
+
+  /* Image section */
+  .text-card-image {
+    flex: 1 1 300px;
+    max-width: 400px;
+    transition: transform 0.5s ease;
+    border-radius: 20px;
+    overflow: visible; 
+    
+    /* Center the card animation container within the image section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    height: 300px; 
+  }
+
+
+/* --- BELOW HERO SECTION (text-card-container) --- */
+  .text-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  /* Image section (now the container for the rotating cards) */
+  .text-card-image {
+    flex: 1 1 300px;
+    
+    max-width: 600px; 
+    transition: transform 0.5s ease;
+    border-radius: 20px;
+    overflow: visible; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* IMPORTANT: Increase height to accommodate the larger card stack */
+    height: 700px; 
+  }
+
+/* --- NEW STYLES FOR ROTATING CARD ANIMATION (3X SIZE) --- */
+
+  .text-card-image .container {
+    width: 100%;
+    height: 100%;
+    position: relative; 
+  }
+
+  .text-card-image .container div {
+    position: absolute;
+ 
+    height: 590px;
+   
+    width: 400px;
+    background-color: #ebebeb;
+   
+    border: 15px solid #ffffff; 
+   
+    border-bottom: 120px solid #ffffff; 
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 8%;
+    box-shadow: #c7c7c7 -6px 6px 12px; 
+    transform-origin: bottom left;
+    scale: 1;
+    transition-duration: 200ms;
+  }
+.text-card-image .container div {
+    /* ... */
+    background-image: url('./image/ -16.jpg'); 
+    background-color: transparent; 
+    background-size: cover;
+    background-position: center;
+    /* ... */
+  }
+  .text-card-image .container div:hover {
+    scale: 1.05; 
+  }
+
+  /* Base position (3X vertical offset: -8px * 3 = -24px) */
+  .text-card-image .container div:nth-child(n) {
+    transform: rotate(0deg) translate(0px, -24px); 
+  }
+  
+ 
+  .text-card-image .container:hover div:nth-child(1) {
+    transform: rotate(-30deg) translate(0px, -24px);
+  }
+  .text-card-image .container:hover div:nth-child(2) {
+    transform: rotate(-10deg) translate(0px, -24px);
+  }
+  .text-card-image .container:hover div:nth-child(3) {
+    transform: rotate(10deg) translate(0px, -24px);
+  }
+  .text-card-image .container:hover div:nth-child(4) {
+    transform: rotate(30deg) translate(0px, -24px);
+  }
+
+
+  /* Text section */
+  .text-card-content {
+    flex: 2 1 400px;
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  /* 3D hover effect */
+  .text-card-content:hover {
+    transform: rotateY(-5deg) translateZ(10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  }
+
+
+  @media (max-width: 900px) {
+    .text-card-container {
+      flex-direction: column;
+      padding: 40px 20px;
+    }
+
+    .text-card-content, .text-card-image {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .text-card-image {
+        height: 400px; 
+        transform: scale(0.6); 
+        margin-bottom: -150px; 
+    }
+  }
+
+  /* --- SECTION BACKGROUND WRAPPER --- */
+  .background-wrapper {
+    /* CORRECTED: Removed backslashes and used quotes */
+    background-image: url('./image/bg pile of clothes.jpg'); 
+    padding-top: 20px; 
+    padding-bottom: 40px; 
+  }
+
+  /* --- ANTI FAST FASHION CARDS STYLES (Enlarged) --- */
+
+  .color-palette-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .container-items {
+    display: flex;
+    flex-wrap: wrap; 
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 30px;
+  }
+
+  .item-color {
+
+    position: relative;
+    flex-shrink: 0;
+    width: 180px; 
+    height: 250px; 
+    border: none;
+    outline: none;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    cursor: pointer;
+    background: none; 
+    padding: 0;
+    margin: 10px; 
+  }
+
+  
+  .item-color .card-content {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background-color: var(--color); 
+    border-radius: 12px; 
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1); 
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%;
+  }
+
+  .item-color h4 {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .item-color p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Hover effect for the card */
+  .item-color:hover {
+    transform: translateY(-10px) scale(1.05); 
+    z-index: 100;
+  }
+  
+  .item-color:active .card-content {
+    transform: scale(0.95);
+  }
+
+  /* --- QUIZ SECTION STYLES --- */
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .quiz-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+
+  .question {
+    margin-bottom: 20px;
+  }
+
+  .question h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  .quiz-container button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffc107;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .quiz-container button:hover {
+    background-color: #ffb300;
+  }
+
+  .result {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-warning">
+ <div class="container-fluid">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-link  text-danger"  href="./index.html">Home</a>
+       <a class="nav-link text-danger"  href="./dampak.html">Dampak</a>
+       <a class="nav-link active text-danger" aria-current="page" href="./solusi.html">Solusi</a>
+       <a class="nav-link text-danger" href="./pkwu.html">Produk</a>
+     </div>
+   </div>
+ </div>
+</nav>
+
+<div class="hero">
+  <h1>Solusi Berkelanjutan</h1>
+  <h3>Dari Kesadaran hingga Aksi</h3>
+</div>
+     
+<div class="text-card-container">
+  <div class="text-card-image">
+    <div class="container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="text-card-content">
+    <h1> Pengaruh Media Massa</h1>
+    <p>
+      Media massa dan media sosial sering mendorong kita untuk hidup konsumtif, termasuk membeli baju hanya karena tren. Dalam ajaran agama, kita diajarkan untuk tidak boros, hidup sederhana, dan bertanggung jawab atas setiap pilihan. Karena itu, kita harus bersikap kritis terhadap pengaruh media, membedakan kebutuhan dan keinginan, serta menyaring konten sesuai nilai agama agar tidak terbawa gaya hidup yang berlebihan.
+    </p>
+    <p>
+      Dalam menghadapi pengaruh media massa dan media sosial yang sering mendorong gaya hidup konsumtif, kita memerlukan integritas, keberanian, dan ketangguhan. Integritas menjaga kita tetap jujur pada nilai agama dan tidak terbawa arus tren yang berlebihan. Keberanian membuat kita mampu menolak ajakan belanja yang tidak perlu meskipun lingkungan menormalisasi perilaku tersebut. Sementara ketangguhan membantu kita tetap konsisten pada prinsip hidup sederhana dan bertanggung jawab meskipun terus dihadapkan pada godaan dan tekanan sosial. Ketiga sikap ini menuntun kita untuk hidup lebih bijak, tidak boros, dan tetap sesuai ajaran agama.
+    </p>
+  </div>
+</div>
+  
+
+
+<div class="background-wrapper">
+
+<div class="color-palette-section">
+    <h2>Anti Fast Fashion</h2>
+    <p>Pilar utama untuk membangun lemari pakaian yang lebih etis dan berkelanjutan.</p>
+    <div class="container-items">
+      
+      <button class="item-color" style="--color: #e11d48">
+          <div class="card-content">
+              <h4>1. Buy Less, Choose Well</h4>
+              <p>Fokus pada kualitas daripada kuantitas. Pilih item klasik yang tahan lama. </p>
+          </div>
+      </button>
+
+      <button class="item-color" style="--color: #f472b6">
+          <div class="card-content">
+              <h4>2. Thrift & Secondhand</h4>
+              <p>Berbelanja barang bekas mengurangi permintaan produksi baru dan memperpanjang umur pakaian yang sudah ada.</p>
+          </div>
+      </button>
+
+      <button class="item-color" style="--color: #fb923c">
+          <div class="card-content">
+              <h4>3. Repair & Repurpose</h4>
+              <p>Perbaiki pakaian yang rusak. Ubah fungsi pakaian lama menjadi sesuatu yang baru dan bermanfaat.</p>
+          </div>
+      </button>
+
+      <button class="item-color" style="--color: #facc15">
+          <div class="card-content">
+              <h4>4. Research Brands</h4>
+              <p>Dukung merek yang transparan, etis, dan memprioritaskan keberlanjutan dalam rantai pasok mereka.</p>
+          </div>
+      </button>
+
+      <button class="item-color" style="--color: #84cc16">
+          <div class="card-content">
+              <h4>5. Capsule Wardrobe</h4>
+              <p>Bangun koleksi pakaian kecil yang terdiri dari item-item yang mudah dipadukan satu sama lain.</p>
+          </div>
+      </button>
+    </div>
+</div>
+
+<h1>Apakah Kamu Konsumtif?</h1>
+<div class="quiz-container">
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. Seberapa sering kamu membeli barang hanya karena tren?</h3>
+      <select name="q1" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Pernah</option>
+        <option value="2">2 - Jarang</option>
+        <option value="3">3 - Kadang</option>
+        <option value="4">4 - Sering</option>
+        <option value="5">5 - Sangat Sering</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <h3>2. Seberapa penting bagi kamu memiliki barang terbaru?</h3>
+      <select name="q2" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Penting</option>
+        <option value="2">2 - Kurang Penting</option>
+        <option value="3">3 - Biasa</option>
+        <option value="4">4 - Penting</option>
+        <option value="5">5 - Sangat Penting</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <h3>3. Seberapa sering kamu membeli barang yang sebenarnya tidak dibutuhkan?</h3>
+      <select name="q3" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Pernah</option>
+        <option value="2">2 - Jarang</option>
+        <option value="3">3 - Kadang</option>
+        <option value="4">4 - Sering</option>
+        <option value="5">5 - Sangat Sering</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <h3>4. Seberapa besar pengaruh media sosial dalam keputusan belanjamu?</h3>
+      <select name="q4" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Terpengaruh</option>
+        <option value="2">2 - Sedikit Terpengaruh</option>
+        <option value="3">3 - Kadang Terpengaruh</option>
+        <option value="4">4 - Terpengaruh</option>
+        <option value="5">5 - Sangat Terpengaruh</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <h3>5. Seberapa sering kamu menyesal setelah membeli barang?</h3>
+      <select name="q5" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Pernah</option>
+        <option value="2">2 - Jarang</option>
+        <option value="3">3 - Kadang</option>
+        <option value="4">4 - Sering</option>
+        <option value="5">5 - Sangat Sering</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <h3>6. Seberapa mudah kamu terpengaruh oleh iklan untuk membeli sesuatu?</h3>
+      <select name="q6" required>
+        <option value="">Pilih jawaban</option>
+        <option value="1">1 - Tidak Pernah</option>
+        <option value="2">2 - Jarang</option>
+        <option value="3">3 - Kadang</option>
+        <option value="4">4 - Sering</option>
+        <option value="5">5 - Sangat Sering</option>
+      </select>
+    </div>
+    
+    <button type="submit">Lihat Hasil</button>
+  </form>
+
+  <div class="result" id="result"></div>
+</div>
+
+</div>
+
+<script>
+document.getElementById('quizForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  
+  const form = e.target;
+  let score = 0;
+  
+  for(let i=1; i<=6; i++){
+    score += parseInt(form['q'+i].value);
+  }
+
+  // Determine konsumtif level
+  let resultText = '';
+  if(score <= 12){
+    resultText = `Skor kamu: ${score} - Selamat! Kamu tidak konsumtif dan bijak dalam berbelanja.`;
+  } else if(score <= 20){
+    resultText = `Skor kamu: ${score} - Kamu berada di tingkat konsumtif sedang. Berhati-hatilah dengan pengeluaranmu!`;
+  } else {
+    resultText = `Skor kamu: ${score} - Kamu konsumtif. Perlu lebih bijak dalam membedakan kebutuhan dan keinginan.`;
+  }
+
+  document.getElementById('result').innerText = resultText;
+});
+</script>
+
+<script>
+  // Navbar active link script
+  const links = document.querySelectorAll('.nav-link');
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach(link => {
+    if(link.getAttribute('href').includes(currentPage)){
+      links.forEach(l => l.classList.remove('active')); 
+      link.classList.add('active');
+    }
+  });
+</script>
+
+<footer>
+ <footer class="bg-warning text-danger text-center mt-5 p-3">
+ <p> "Menjadi pemimpin yang Peduli, Kreatif, dan Berwawasans Global"
+</p>
+</footer>
+
+</body>
+</html>

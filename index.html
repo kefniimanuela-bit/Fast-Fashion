@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+      /* Apply Poppins font */
+      body, .navbar, .nav-link, .navbar-brand, .text-card-content p, .wardrobe-section h2, .wardrobe-info h3, .wardrobe-info p, h1, h2, h3 {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* --- HERO SECTION: FAST VS SUSTAINABLE (ANIMATED WITH IMAGES) --- */
+      .hero {
+         height: 90vh; 
+         width: 100%;
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         overflow: hidden;
+         background-color: #111; 
+      }
+
+      .hero-panel {
+         position: absolute;
+         top: 0;
+         width: 50%;
+         height: 100%;
+         background-size: cover;
+         background-position: center;
+         transition: all 1s ease;
+      }
+
+      .fast-fashion-panel {
+         left: 0;
+         background-image: url('./image/Homepage bg.png'); 
+         opacity: 0;
+         animation: slideInLeft 1s ease-out forwards;
+      }
+
+      .sustainable-panel {
+         right: 0;
+         background-image: url('./image/solusi berkelanjutan background.png'); 
+         opacity: 0;
+         animation: slideInRight 1s ease-out forwards 0.3s;
+      }
+
+      /* Title Container */
+      .hero-title-container {
+         position: relative;
+         z-index: 10;
+         text-align: center;
+         pointer-events: none; 
+      }
+
+      .hero-title-container h1 {
+         font-size: 5vw; 
+         font-weight: 900;
+         color: white;
+         text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+         opacity: 0;
+         animation: popInTitle 1s ease-out forwards 1.2s;
+         white-space: nowrap;
+      }
+      
+      .vs-text {
+         font-size: 2.5vw;
+         font-weight: 700;
+         color: #ffc107; 
+      }
+
+      /* Keyframe Animations */
+      @keyframes slideInLeft {
+         from { transform: translateX(-100%); opacity: 1; }
+         to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideInRight {
+         from { transform: translateX(100%); opacity: 1; }
+         to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes popInTitle {
+         from { opacity: 0; transform: scale(0.8); }
+         to { opacity: 1; transform: scale(1); }
+      }
+
+      /* Scroll Button */
+      .scroll-btn {
+         position: absolute;
+         bottom: 50px;
+         z-index: 15;
+         padding: 12px 24px;
+         font-size: 18px;
+         background-color: rgba(255, 193, 7, 0.9); 
+         color: #212121;
+         border: none;
+         border-radius: 50px;
+         cursor: pointer;
+         transition: background-color 0.3s, transform 0.3s;
+         animation: bounce 1.5s infinite 2s; 
+      }
+      .scroll-btn:hover { 
+         background-color: #ffc107;
+         transform: scale(1.05);
+         animation: none; 
+      }
+      
+      @keyframes bounce {
+         0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+         40% { transform: translateY(-15px); }
+         60% { transform: translateY(-7px); }
+      }
+      
+      /* --- INFO SECTION (FASHION CARDS) --- */
+      .fashion-section {
+    
+        padding: 60px 20px; 
+        /* FIXED: Image path corrected (Removed \ -17.jpg) */
+        background: url('./image/ -17.jpg') center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+
+      .fashion-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.6);
+        z-index: 0;
+      }
+
+
+      .section-title {
+        font-family: 'Poppins', sans-serif;
+
+        font-size: 2.2rem; 
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(90deg, #ff6b6b, #ffca3a, #4caf50, #36c9ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradientShift 5s ease infinite;
+      }
+      
+      /* Gradient animation for title */
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* Title Letters Animation */
+      .section-title span {
+        display: inline-block;
+        animation: float 3s ease-in-out infinite;
+        color: #000; 
+      }
+
+
+      .section-title span:nth-child(odd) {
+        animation-delay: 0s;
+      }
+      .section-title span:nth-child(even) {
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+
+      /* Container */
+      .fashion-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        max-width: 1200px;
+        width: 100%;
+        perspective: 1200px;
+        position: relative;
+        z-index: 1; 
+      }
+
+      /* Top Cards */
+      .top-cards {
+        display: flex;
+        gap: 40px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* Card base */
+      .fashion-card {
+        flex: 1 1 350px;
+        background: linear-gradient(145deg, #ffefba, #ffffff);
+        border-radius: 25px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        transition: transform 0.6s ease, background 0.5s ease;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      }
+      
+  
+      .fashion-card .btn-read-more {
+          margin-top: 20px;
+          font-weight: 600;
+          transition: transform 0.3s ease;
+      }
+      
+      .fashion-card:hover .btn-read-more {
+          transform: translateY(-5px);
+      }
+
+      .fashion-card:hover {
+        transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+        background: linear-gradient(145deg, #ff6b6b, #ffd6a5);
+      }
+
+      .card-layer {
+        padding: 40px 30px;
+        transition: transform 0.6s ease;
+      }
+
+      .fashion-card:hover .card-layer {
+        transform: translateZ(30px) rotateZ(-2deg);
+      }
+
+      /* Card titles */
+      .fashion-card h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #ff6b6b, #ffca3a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+ 
+      .fashion-card:nth-child(1) h2 {
+          background: linear-gradient(90deg, #dc3545, #ff6b6b);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+       .fashion-card:nth-child(2) h2 {
+          background: linear-gradient(90deg, #4CAF50, #81c784);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+
+      .fashion-card p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Hover bubbles */
+      .fashion-card::before {
+        content: '';
+        position: absolute;
+        top: -40%;
+        left: -40%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transform: rotate(45deg) scale(0.8);
+        transition: transform 0.7s ease, opacity 0.7s ease;
+      }
+
+      .fashion-card:hover::before {
+        transform: rotate(0deg) scale(1.2);
+        opacity: 1;
+      }
+
+      /* Conclusion card */
+      .conclusion-card {
+        max-width: 700px;
+        background: linear-gradient(145deg, #fffde7, #ffffff);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .top-cards {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      /* --- CARD FLIP CSS (Existing) --- */
+      .ff-card {
+        margin: 80px auto; 
+        width: 350px;
+        height: 450px;
+        perspective: 1000px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .ff-card:hover { transform: scale(1.03); box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
+      .card__inner { width: 100%; height: 100%; transition: transform 1s; transform-style: preserve-3d; cursor: pointer; position: relative; }
+      .card__inner.is-flipped { transform: rotateY(180deg); }
+      .card__face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; overflow: hidden; }
+      .front-img { background-size: cover; background-position: center; }
+      .card__face--back { background: #ffffff; transform: rotateY(180deg); padding: 40px 25px; display: flex; justify-content: center; align-items: center; }
+      
+
+      .card__content-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+        text-align: center;
+    }
+      
+      .card__content-text h3 { font-size: 26px; font-weight: 700; margin-bottom: 15px; color: #333; }
+      .card__content-text p { font-size: 16px; font-weight: 300; color: #444; line-height: 1.5; }
+
+  
+      .typewriter-title {
+        color: white; 
+        font-size: 58px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-align: center;
+        text-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+        opacity: 0;
+        animation: fadeInText 2s ease-out forwards;
+      }
+
+      @keyframes fadeInText {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+
+      .footprint-cta {
+          font-weight: 700;
+          padding: 15px 30px;
+          border-radius: 50px;
+          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+          transition: all 0.3s ease;
+      }
+
+      .footprint-cta:hover {
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 8px 20px rgba(220, 53, 69, 0.6);
+      }
+
+   </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-warning">
+ <div class="container-fluid">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-link active text-danger" aria-current="page" href="./index.html">Home</a>
+       <a class="nav-link text-danger" href="./dampak.html">Dampak</a>
+       <a class="nav-link text-danger" href="./solusi.html">Solusi</a>
+       <a class="nav-link text-danger" href="./pkwu.html">Produk</a>
+     </div>
+   </div>
+ </div>
+</nav>
+   
+   <div class="hero">
+      
+      <div class="hero-panel fast-fashion-panel"></div>
+      <div class="hero-panel sustainable-panel"></div>
+
+      <div class="hero-title-container">
+         <h1>
+            FAST FASHION 
+            <span class="vs-text">VS.</span> 
+            SUSTAINABLE
+         </h1>
+      </div>
+      <button class="scroll-btn" onclick="scrollToInfo()">↓ Find Out More</button>
+   </div>
+
+<section class="fashion-section" id="info-section">
+  <h1 class="section-title">
+  <span>A</span><span>p</span><span>a</span> 
+  <span>i</span><span>t</span><span>u</span> 
+  <span>F</span><span>a</span><span>s</span><span>t</span> 
+  <span>F</span><span>a</span><span>s</span><span>h</span><span>i</span><span>o</span><span>n</span> 
+  <span>v</span><span>s</span>. 
+  <span>S</span><span>u</span><span>s</span><span>t</span><span>a</span><span>i</span><span>n</span><span>a</span><span>b</span><span>l</span><span>e</span>?
+</h1>
+
+  <div class="fashion-container">
+
+    <div class="top-cards">
+      <div class="fashion-card">
+        <div class="card-layer">
+          <h2>Fast Fashion</h2>
+          <p>
+            Fast fashion adalah istilah yang digunakan untuk menggambarkan pakaian yang diproduksi dengan cepat, murah, dan mengikuti tren terbaru. Tujuannya adalah untuk membawa gaya dari catwalk ke toko sesegera mungkin dengan biaya serendah mungkin, mendorong konsumen untuk membeli lebih banyak dan sering.
+          </p>
+        </div>
+      </div>
+
+      <div class="fashion-card">
+        <div class="card-layer">
+          <h2>Sustainable Fashion</h2>
+          <p>
+            Sustainable fashion berfokus pada produksi bertanggung jawab, bahan ramah lingkungan, dan gaya hidup yang lebih bijak.
+          </p>
+    
+        </div>
+      </div>
+    </div>
+
+    <div class="fashion-card conclusion-card">
+      <div class="card-layer">
+        <h2>Kesimpulan</h2>
+        <p>
+          Kedua arah ini berada pada jalur yang berlawanan: satu merusak bumi, satu melindungi bumi. Pilihan kita menentukan masa depan lingkungan dan gaya hidup yang lebih bijak.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="highlights-section" style="background-image: url('./image/bg.jpg'); background-size: cover; background-position: center; padding: 100px 0;">
+      <div class="container text-center">
+
+        <h2 class="typewriter-title mb-5" id="Highlights">FAST FASHION FOOTPRINT</h2>
+
+        <div class="row justify-content-center g-4">
+
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card ff-card">
+              <div class="card__inner">
+                <div class="card__face card__face--front front-img" style="background-image: url('./image/Card 1 - Footprint-2.png');"></div>
+
+                <div class="card__face card__face--back">
+                  <div class="card__content-text">
+                    <h3>Polusi Lingkungan</h3>
+                    <p>Fast fashion menghasilkan limbah tekstil dan penggunaan bahan kimia berbahaya yang mencemari air, udara, dan tanah.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card ff-card">
+              <div class="card__inner">
+                <div class="card__face card__face--front front-img" style="background-image: url('./image/Card 2 - Footprint-2.png');"></div>
+
+                <div class="card__face card__face--back">
+                  <div class="card__content-text">
+                    <h3>Pola Hidup Konsumtif</h3>
+                    <p>Siklus tren yang cepat mendorong masyarakat membeli pakaian berlebih secara impulsif, memicu budaya beli–pakai–buang.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card ff-card">
+              <div class="card__inner">
+                <div class="card__face card__face--front front-img" style="background-image: url('./image/Card 3 - Footprint 16.05.34.png');"></div>
+
+                <div class="card__face card__face--back">
+                  <div class="card__content-text">
+                    <h3>Penggunaan Air Terbanyak</h3>
+                    <p>Produksi pakaian fast fashion membutuhkan air dalam jumlah sangat besar, terutama pada proses pewarnaan dan pembuatan bahan seperti katun, sehingga menekan ketersediaan air bersih.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-5">
+            <a href="./dampak.html" class="btn btn-lg btn-danger footprint-cta">
+                Pelajari Lebih Lanjut tentang Dampak Lingkungan →
+            </a>
+        </div>
+
+      </div>
+    </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+   <script>
+      function scrollToInfo() {
+         document.getElementById("info-section").scrollIntoView({ behavior: "smooth" });
+      }
+   </script>
+
+   <script>
+const cards = document.querySelectorAll(".card__inner");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-flipped");
+  });
+});
+</script>
+
+<footer>
+ <footer class="bg-warning text-danger text-center mt-5 p-3">
+ <p> "Menjadi pemimpin yang Peduli, Kreatif, dan Berwawasans Global"
+</p>
+</footer>
+
+</body>
+</html>
